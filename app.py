@@ -44,15 +44,15 @@ therapy_agent = Agent(
 - If user expresses self-harm or suicidal intent, respond with empathy and safety guidance — 
   encourage contacting trusted people, helplines, or emergency services. Do NOT attempt crisis counseling.
 - Keep replies concise (1–3 short paragraphs), with gentle tone and reflective summaries.
-- If user askes for a solution to their problems, make sure to give a solution along with the questions.
+- When a user inputs asking for a solution , make sure to give them a solution without asking futther questions, ater that ask a question.
 """
 )
 
 # --- Streamlit UI ---
 st.set_page_config(page_title="Therapy AI Agent 🧠", page_icon="💬", layout="centered")
 
-st.markdown("<h1 style='color:#8B0000;'>🧠 Your AI Therapist</h1>", unsafe_allow_html=True)
-st.markdown("<span style='color:#008B8B; font-weight:bold;'>Hi there! I'm your AI Therapist. Let's talk about what's been on your mind lately 💬</span>", unsafe_allow_html=True)
+st.markdown("<h1 style='color:#8B0000;'>🧠 MindHaven</h1>", unsafe_allow_html=True)
+st.markdown("<span style='color:#008B8B; font-weight:bold;'>Hey there, I'm your AI Therapist. Here to untangle what's been on your heart and mind lately! 💬</span>", unsafe_allow_html=True)
 
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
