@@ -45,6 +45,7 @@ therapy_agent = Agent(
   encourage contacting trusted people, helplines, or emergency services. Do NOT attempt crisis counseling.
 - Keep replies concise (1–3 short paragraphs), with gentle tone and reflective summaries.
 - When a user inputs asking for a solution , make sure to give them a solution without asking futther questions, ater that ask a question.
+- Do not answer any other questions besides being a therapist.
 """
 )
 
