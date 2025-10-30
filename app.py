@@ -14,7 +14,7 @@ if not gemini_api_key:
     st.error("❌ GEMINI_API_KEY is not set. Please define it in your .env file.")
     st.stop()
 
-# --- External Gemini API Client ---
+# External Gemini API Client
 external_client = AsyncOpenAI(
     api_key=gemini_api_key,
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
@@ -31,7 +31,7 @@ config = RunConfig(
     tracing_disabled=True
 )
 
-# --- Therapy Agent ---
+# Therapy Agent
 therapy_agent = Agent(
     name='Therapy Agent',
     instructions="""You are a Psychologist.
@@ -45,11 +45,11 @@ therapy_agent = Agent(
   encourage contacting trusted people, helplines, or emergency services. Do NOT attempt crisis counseling.
 - Keep replies concise (1–3 short paragraphs), with gentle tone and reflective summaries.
 - When a user inputs asking for a solution , make sure to give them a solution without asking futther questions, ater that ask a question.
-- Do not answer any other questions besides being a therapist.
+- Only respond in a therapeutic and emotionally supportive way — do not answer factual, trivia, or technical questions, and gently redirect the user back to emotional or reflective topics instead.
 """
 )
 
-# --- Streamlit UI ---
+# Streamlit UI
 st.set_page_config(page_title="Therapy AI Agent 🧠", page_icon="💬", layout="centered")
 
 st.markdown("<h1 style='color:#8B0000;'>🧠 MindHaven</h1>", unsafe_allow_html=True)
@@ -64,7 +64,7 @@ for msg in st.session_state["messages"]:
         st.markdown(msg["content"])
 
 
-# --- Async Runner ---
+# Async Runner 
 async def get_ai_response(prompt):
     response = await Runner.run(
         therapy_agent,
@@ -74,7 +74,7 @@ async def get_ai_response(prompt):
     return response.final_output
 
 
-# --- Chat input handling ---
+# Chat input handling
 if prompt := st.chat_input("How are you feeling?"):
     st.session_state["messages"].append({"role": "user", "content": prompt})
     with st.chat_message("user"):
